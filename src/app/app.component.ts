@@ -23,7 +23,7 @@ export class AppComponent {
     }
   }
 
-  private fortuneAPI = 'http://api.acme.international/fortune';
+  private fortuneAPI = 'https://tinyurl.com/yc364gqc'; //encoded API url
   private fortuneStore: any;
 
   ngOnInit() {
