@@ -27,13 +27,14 @@ export class AppComponent {
   private fortuneStore: any;
 
   ngOnInit() {
+    //checks local storage to see if existing fortunes can be rendered
     if (localStorage.getItem('fortunes')) {
       this.fortunes = JSON.parse(localStorage.getItem('fortunes'));
-      console.log(this.fortunes);
     }
   }
 
   deleteFortune(i: number) {
+    //deletes fortune at index specified 
     console.log('deleting this fortune', this.fortunes[i]);
     this.fortunes.splice(i, 1);
     this.saveFortunes(this.fortunes);
@@ -45,7 +46,7 @@ export class AppComponent {
       .map(res => res.json())
       .subscribe(
         (data) => {
-          console.log(data.fortune);
+          console.log('new fortune: ', data.fortune);
           this.storeFortunes(data.fortune);
         }, (err) => { 
           console.log(err, "request failed");
@@ -59,11 +60,10 @@ export class AppComponent {
     this.randomColor =  "hsl(" + 360 * Math.random() + ',' +
     (25 + 70 * Math.random()) + '%,' + 
     (85 + 10 * Math.random()) + '%)';
-
-    // this.randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
   }
 
   storeFortunes(fortune: any) {
+    //stores in this.fortunes array
     this.getRandomColor();
 
     this.fortuneStore = {
@@ -80,10 +80,12 @@ export class AppComponent {
   }
 
   saveFortunes(fortunes: any) {
+    //saves to local storage
     localStorage.setItem('fortunes', JSON.stringify(this.fortunes));
   }
 
   onClick() {
+    //when button is clicked, sends GET request to the API
     console.log('getting fortune...');
     this.getAPI(this.fortuneAPI);
   }
