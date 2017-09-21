@@ -1,0 +1,68 @@
+*, html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  font-family: Helvetica, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+
+li {
+  height: auto;
+}
+
+.main {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+}
+
+.fortunebutton {
+  height: 50px;
+  width: 100px;
+}
+
+.fortunebox {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  max-height: 100%;
+  text-align: center;
+  padding: 0;
+}
+
+.fortune-text {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteButton {
+  display: flex;
+  position: relative;
+  margin: 10px 10px 0px 0px;
+  height: 20px;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.buttonbox {
+  display: flex;
+  height: 50%;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}

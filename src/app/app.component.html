@@ -1,0 +1,26 @@
+<div class="main">
+  <div *ngFor="let fortuneStore of fortunes; let i=index"
+       [ngStyle]="{'background-color': fortuneStore.color,
+                   'height': fortunes.length > 1 ? '50%' : '100%'}"
+       class="fortunebox">
+    <div 
+      class="deleteButton"
+      (click)="deleteFortune(i)">X</div>
+    
+    <div class="fortune-text"
+         [ngStyle]="{'font-size': fortunes.length < 2 ? '200%' : '100%'}">
+      <ul>
+      <li *ngFor="let line of fortuneStore.fortune">{{line}}</li>
+      </ul>
+    </div>
+      
+  </div>
+
+  <div class="buttonbox"
+       [ngStyle]="{'height': fortunes.length > 1 ? '50%' : '100%'}">
+  <button 
+    class="fortunebutton"
+    *ngIf="fortunes.length < 4"
+    (click)="onClick()">+ Fortune</button>
+  </div>
+</div>
